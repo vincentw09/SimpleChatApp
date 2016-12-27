@@ -33,10 +33,10 @@
             </ol>
         </div>
 
-        <div>
+        <form>
             <input id="message" placeholder=Message... type="text">
             <button id="sendbutton">send</button>
-        </div>
+        </form>
 
 
     </div>
@@ -47,5 +47,10 @@
 
 <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
 <script src="app.js"></script>
+
+<script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+    </script>
 
 </html>

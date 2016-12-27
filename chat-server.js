@@ -1,15 +1,36 @@
 /* global Buffer */
 /* global __dirname */
-var express = require("express");
+
+var express = require('express');
+var http = require('http');
 var url = require("url");
-var http = require("http");
 
 var port = 3000;
 var app = express();
+
 app.use(express.static(__dirname + "/client"));
-http.createServer(app).listen(port);
 
+var server = http.createServer(app);
+var io = require('socket.io').listen(server);
 
+server.listen(port);
+
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+    console.log("message:" + msg)
+  });
+});
+
+/*
+io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+});
+
+/*
 var currentid = 0;
 var messages = [];
 var users = [];
@@ -63,4 +84,4 @@ app.get("/send", function (req, res) {
 		res.end("Error: missing message parameter");
 	}
 });
-
+*/
