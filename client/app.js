@@ -12,7 +12,7 @@ var main = function () {
         return false;
     });
     socket.on('chat message', function(msg){
-        $('#chatlog').append($('<li>').text(msg));
+        $('#chat-log').append($('<li>').text(msg));
     });
 
     //todo constructor
