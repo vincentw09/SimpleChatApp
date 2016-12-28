@@ -1,47 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Chat</title>
-    <link rel="stylesheet" href="style.css"> </head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="Vincent">
+  <link rel="icon" href="../../favicon.ico">
 
+  <title>A Simple chat app</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap theme -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"> </head>
 </head>
+
 <body>
+  <nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
 
-<div class="navbar">
-    <ul>
-        <li style="float:left" class="homelogo">
-            <a href="index.html"> <img src="images/favicon.png"> </a>
-        </li>
-        <li><a href="profile.html">PROFILE</a></li>
-        <li><a href="settings.html">SETTINGS</a></li>
-    </ul>
-</div>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img alt="Brand" src="images/favicon.png">
+        </a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </nav>
 
-<main>
+  <div class="container theme-showcase">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Contacts</div>
+          <div class="list-group">
+            <button type="button" class="list-group-item">
+              <h4 class="list-group-item-heading">List group item heading</h4>
+              <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </button>
+            <button type="button" class="list-group-item">
+              <h4 class="list-group-item-heading">List group item heading</h4>
+              <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </button>
+            <button type="button" class="list-group-item">
+              <h4 class="list-group-item-heading">List group item heading</h4>
+              <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Main Chat</h3>
+          </div>
+          <div class="panel-body">
+            <div class="chat-log" id="chat-log">
+              <ul>
+              </ul>
+            </div>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Message" id="message">
+              <span class = "input-group-btn">
+                  <button class = "btn btn-default" type = "button" id="send">
+                     Send
+                  </button>
+               </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--
+
+  <main>
     <div class="main">
 
-
-    <div id="Title">
-        Simple Chat App!
-    </div>
-
-    <div id="mainpane">
+      <div id="sidepane">
+        <ul>
+          <li>Main chat</li>
+        </ul>
+      </div>
+      <div id="mainpane">
         <div id="chatlog">
-            <ol>
-
-            </ol>
+          <ul>
+            <li>Main chat</li>
+            <li>Main chat</li>
+          </ul>
         </div>
 
         <form>
-            <input id="message" placeholder=Message... type="text">
-            <button id="sendbutton">send</button>
+          <input id="message" placeholder=Message... type="text">
+          <button id="sendbutton">send</button>
         </form>
-
-
+      </div>
     </div>
-    </div>
-</main>
+  </main>
+-->
 
 </body>
 
@@ -49,8 +122,9 @@
 <script src="app.js"></script>
 
 <script src="/socket.io/socket.io.js"></script>
-    <script>
-      var socket = io();
-    </script>
+<script>
+  var socket = io();
+</script>
+
 
 </html>

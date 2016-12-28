@@ -5,7 +5,8 @@ var main = function () {
 
     var messages = [];
     var socket = io();
-    $('form').submit(function(){
+    $('#send').click(function(){
+      console.log("sumbit pressed " + $('#message').val())
         socket.emit('chat message', $('#message').val());
         $('#message').val('');
         return false;
