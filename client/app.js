@@ -5,17 +5,28 @@ var main = function () {
 
     var messages = [];
     var socket = io();
-    $('#send').click(function(){
-      console.log("sumbit pressed " + $('#message').val())
+    var sendMessage = function () {
+        console.log("sumbit pressed " + $('#message').val())
         socket.emit('chat message', $('#message').val());
         $('#message').val('');
         return false;
+    }
+
+    $('#send').click(function(){
+        sendMessage();
     });
+
+    $('#message').on("keypress", function (event) {
+        if (event.keyCode == 13) {
+            sendMessage();
+        }
+    });
+
     socket.on('chat message', function(msg){
         $('#chat-log').append($('<li>').text(msg));
     });
 
-    //todo constructor
+    //message constructor
     function message(Id, Text, Date, Sender) {
         this.ID = Id;
         this.text = Text;
