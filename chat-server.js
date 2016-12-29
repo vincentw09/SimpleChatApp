@@ -15,9 +15,21 @@ var io = require('socket.io').listen(server);
 
 server.listen(port);
 
+var users = [];
+
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
     console.log("message:" + msg)
   });
+  socket.on('user connected',function (user) {
+	  users.push(user);
+	  io.emit('users', users);
+  });
+    socket.on('disconnect', function(){
+		users = [];
+		io.emit('request user');
+	});
+
+
 });

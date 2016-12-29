@@ -22,13 +22,16 @@ var main = function () {
             username);
         sendMessage(msg);
     }
+    var adduser = function (user) {
+        var $onlineuserli = $('<button type="button" class="list-group-item"><p class="list-group-item-text">');
+        $onlineuserli.text(user);
+        $('#onlineusers').append($onlineuserli)
+    }
 
     $( "#pickusername" ).submit(function( event ) {
         username=$('#username').val();
-        var $onlineuserli = $('<button type="button" class="list-group-item"><p class="list-group-item-text">');
-        $onlineuserli.text(username);
-        $onlineuserli.insertBefore("#pickuserbutton");
         console.log(username);
+        socket.emit("user connected", username);
         event.preventDefault();
         $('.pickusernamemodal').modal('toggle')
     });
@@ -48,10 +51,20 @@ var main = function () {
         }
         console.log(msg.sender);
         $('#chat-log').scrollTop(10000);
-
-
-
     });
+
+    socket.on('users', function(users){
+        $("#onlineusers").empty();
+        for (var i in users) {
+            console.log(users[i] + "added to list");
+            adduser(users[i]);
+        }
+    });
+
+    socket.on('request user', function () {
+        socket.emit("user connected", username);
+    });
+
 
     //message constructor
     function message(Text, Sender) {
