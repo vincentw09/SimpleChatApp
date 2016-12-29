@@ -25,6 +25,9 @@ var main = function () {
 
     $( "#pickusername" ).submit(function( event ) {
         username=$('#username').val();
+        var $onlineuserli = $('<button type="button" class="list-group-item"><p class="list-group-item-text">');
+        $onlineuserli.text(username);
+        $onlineuserli.insertBefore("#pickuserbutton");
         console.log(username);
         event.preventDefault();
         $('.pickusernamemodal').modal('toggle')
@@ -32,8 +35,6 @@ var main = function () {
 
     $( "#sendform" ).submit(function( event ) {
         createMessage();
-
-
         event.preventDefault();
     });
 
@@ -43,8 +44,9 @@ var main = function () {
             $('#chat-log-list').append($('<li class="bubble-own">').text(msg.text));
         }
         else{
-            $('#chat-log-list').append($('<li class="bubble-other">').text(msg.text));
+            $('#chat-log-list').append($('<li class="bubble-other">').html("<b>" + msg.sender + ": </b><br>" + msg.text));
         }
+        console.log(msg.sender);
         $('#chat-log').scrollTop(10000);
 
 
