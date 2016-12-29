@@ -18,6 +18,7 @@ body {
 .chat-log-list{
   margin-top: 0;
   padding: 0px 20px 0px 0px;
+  overflow-y: auto;
 
 }
 
