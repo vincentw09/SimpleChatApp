@@ -7,3 +7,79 @@ body {
   overflow-y: scroll;
   height: 500px
 }
+.own{
+  text-align: right;
+  list-style-position: inside;
+}
+.other{
+  text-align: left;
+  list-style-position: inside;
+}
+.chat-log-list{
+  margin-top: 0;
+  padding: 0px 20px 0px 0px;
+
+}
+
+.bubble-other
+{
+  float: left;
+  clear: both;
+  position: relative;
+  display:inline-block;
+  overflow-x: visible;
+  padding: 9px 20px;
+  background: #AEEEEE;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  margin: 5px 60px 5px 16px;
+}
+
+.bubble-other:after
+{
+
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 8px 21px 8px 0;
+  border-color: transparent #AEEEEE ;
+  display: block;
+  width: 0;
+  z-index: 1;
+  margin-top: -11px;
+  left: -16px;
+  top: 74%;
+}
+
+
+.bubble-own
+{
+  float: right;
+  clear: both;
+  position: relative;
+  display:inline-block;
+  overflow-x: visible;
+  padding: 9px 20px;
+  background: #DCF8C6;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  margin: 5px 60px 5px 16px;
+}
+
+.bubble-own:after
+{
+
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 8px 0 8px 21px;
+  border-color: transparent #DCF8C6;
+  display: block;
+  width: 0;
+  z-index: 1;
+  margin-top: -11px;
+  right: -16px;
+  top: 74%;
+}
