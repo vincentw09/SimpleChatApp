@@ -50,7 +50,7 @@ var main = function () {
             $('#chat-log-list').append($('<li class="bubble-other">').html("<b>" + msg.sender + ": </b><br>" + msg.text));
         }
         console.log(msg.sender);
-        $('#chat-log').scrollTop(10000);
+        $('#chat-log').animate({scrollTop: $('#chat-log-list').prop("scrollHeight")}, 50);
     });
 
     socket.on('users', function(users){
